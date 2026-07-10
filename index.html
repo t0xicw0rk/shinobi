@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Mystery Awaits... 🥷🏼🌸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: radial-gradient(circle at center, #1a0f2e 0%, #05020a 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 20px;
+            position: relative;
+        }
+        /* Ambient glowing moon effect in background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            box-shadow: 0 0 100px rgba(255, 255, 255, 0.05);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            background: rgba(15, 8, 25, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 183, 213, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #ffb7d5;
+            text-shadow: 0 0 15px rgba(255, 183, 213, 0.6);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: #d1c4e9;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .input-group {
+            position: relative;
+            width: 80%;
+            max-width: 400px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 183, 213, 0.3);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .input-group input:focus {
+            border-color: #ffb7d5;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(255, 183, 213, 0.4);
+        }
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .submit-btn {
+            background: linear-gradient(45deg, #ff8da1, #b388ff);
+            color: #05020a;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 141, 161, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 141, 161, 0.6);
+            background: linear-gradient(45deg, #ffb7d5, #d1c4e9);
+        }
+        /* Sakura Falling Animation Elements */
+        .sakura {
+            position: absolute;
+            background: linear-gradient(to bottom right, #ffb7d5, #ff8da1);
+            border-radius: 100% 0 100% 100%;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes fall {
+            0% {
+                top: -10%;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                transform: translateX(100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Under the Moonlight... 🌕</h1>
+        <p class="subtitle">A silent warrior brings a question just for you ✨</p>
+        <div class="video-wrapper">
+            <video autoplay loop muted playsinline controls>
+                <source src="Ninjavideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="form-section">
+            <div class="input-group">
+                <input type="text" id="friendName" placeholder="Write your name here... 🌸" required>
+            </div>
+            <button class="submit-btn" onclick="sendToWhatsApp()">
+                Reveal Secrets 🥷🏼🌸
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Creating simple falling petals
+        for (let i = 0; i < 25; i++) {
+            const petal = document.createElement('div');
+            petal.classList.add('sakura');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.width = Math.random() * 10 + 8 + 'px';
+            petal.style.height = Math.random() * 10 + 8 + 'px';
+            petal.style.animationDuration = Math.random() * 5 + 5 + 's';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(petal);
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('friendName').value.trim();
+            
+            if (name === "") {
+                alert("Please write your name first! 🌸");
+                return;
+            }
+            
+            // FIXME: अपना 10-digit व्हाट्सएप्प नंबर नीचे '91' के बाद लिखें
+            const yourPhoneNumber = "918808913324"; 
+            
+            // कस्टम मैसेज जो आपके पास आएगा
+            const message = `Hey! 🥷🏼🌸 मैंने तुम्हारा भेजा हुआ मूनलाइट video देखा और अपना नाम लिख दिया! मेरा नाम है: *${name}* ✨`;
+            
+            // WhatsApp URL redirection
+            const whatsappURL = `https://wa.me/${yourPhoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
